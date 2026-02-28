@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gldy Makeup</title>
+    <link rel="icon" type="image/png" href="img/logo-gldy.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      /* =============================
+           COLOR OVERRIDE SYSTEM
+           (NO STRUCTURE CHANGED)
+        ============================== */
+      :root {
+        --bg-main: #faf6f3;
+        --heading: #3a2e2a;
+        --text-body: #8a7f79;
+        --accent: #d8b4a6;
+        --secondary: #eadad3;
+      }
+
+      body {
+        background: var(--bg-main);
+        color: var(--text-body);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        color: var(--heading);
+      }
+
+      /* HERO */
+      .gradient-bg {
+        background: linear-gradient(135deg, #faf6f3 0%, #eadad3 100%);
+      }
+
+      /* NAVBAR */
+      nav {
+        background: var(--bg-main) !important;
+      }
+
+      nav span,
+      nav a {
+        color: var(--heading) !important;
+      }
+
+      nav a.bg-gray-600 {
+        background: var(--accent) !important;
+        color: #fff !important;
+      }
+
+      /* TEXT COLORS */
+      .text-gray-800,
+      .text-gray-700,
+      .text-gray-600,
+      .text-gray-400 {
+        color: var(--text-body) !important;
+      }
+
+      /* BACKGROUNDS */
+      .bg-white {
+        background-color: var(--bg-main) !important;
+      }
+
+      .bg-gray-50 {
+        background-color: var(--secondary) !important;
+      }
+
+      .bg-gray-600 {
+        background-color: var(--accent) !important;
+      }
+
+      .bg-gray-900 {
+        background-color: #3a2e2a !important;
+      }
+
+      /* DIVIDER */
+      .w-20.h-1 {
+        background-color: var(--accent) !important;
+      }
+
+      /* ICON COLORS */
+      .text-indigo-600,
+      .text-blue-600,
+      .text-blue-500,
+      .text-blue-400,
+      .text-purple-600,
+      .text-yellow-600,
+      .text-red-600 {
+        color: var(--accent) !important;
+      }
+
+      /* SKILL BAR */
+      .skill-bar {
+        height: 10px;
+        background-color: var(--secondary);
+        border-radius: 5px;
+      }
+
+      .skill-progress {
+        height: 100%;
+        border-radius: 5px;
+        background: linear-gradient(90deg, #d8b4a6 0%, #3a2e2a 100%);
+      }
+
+      /* TIMELINE */
+      .timeline-item:not(:last-child)::after {
+        background: var(--accent);
+      }
+
+      /* FOOTER TEXT */
+      footer,
+      footer p,
+      footer span,
+      footer a {
+        color: #faf6f3 !important;
+      }
+    </style>
+  </head>
+
+  <body class="font-sans antialiased text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full z-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+          <div class="flex items-center">
+            <img src="img/logo-gldy.png" style="width: 60px" />
+            <span class="text-xl font-bold text-gray-800">Gldy Makeup</span>
+          </div>
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="#home"
+              class="text-[#8A7F79] hover:text-gray-400 font-medium"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="text-[#8A7F79] hover:text-gray-400 transition"
+              >About</a
+            >
+            <a
+              href="#services"
+              class="text-[#8A7F79] hover:text-gray-400 transition"
+              >Services</a
+            >
+            <a
+              href="#pricelist"
+              class="text-[#8A7F79] hover:text-gray-400 transition"
+              >Pricelist</a
+            >
+            <a
+              href="#portfolio"
+              class="text-[#8A7F79] hover:text-gray-400 transition"
+              >Portfolio</a
+            >
+            <a
+              href="#contact"
+              class="bg-gray-600 text-white px-4 py-2 rounded-md hover:text-gray-400 transition"
+              >Contact</a
+            >
+          </div>
+          <div class="md:hidden flex items-center">
+            <button id="menuBtn" class="text-gray-600 hover:text-gray-400">
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a
+            href="#home"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-600"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-600"
+            >About</a
+          >
+          <a
+            href="#services"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-600"
+            >Services</a
+          >
+          <a
+            href="#pricelist"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-600"
+            >Pricelist</a
+          >
+          <a
+            href="#portfolio"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-600"
+            >Portfolio</a
+          >
+          <a
+            href="#contact"
+            class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-600"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <section
+      id="home"
+      class="relative pt-28 pb-20"
+      style="
+        background-image: url(&quot;img/5352.jpg&quot;);
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <!-- Overlay -->
+      <div class="absolute inset-0 bg-[#FAF6F3]/80"></div>
+
+      <!-- Content -->
+      <div
+        class="relative max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 items-center gap-12"
+      >
+        <!-- LEFT CONTENT -->
+        <div>
+          <h1
+            class="text-5xl md:text-6xl font-serif font-semibold text-[#3A2E2A] leading-tight mb-6"
+          >
+            Skip your morning makeup routine and wake up flawless!
+          </h1>
+
+          <p class="text-lg text-[#8A7F79] mb-8 max-w-md">
+            Professional makeup services designed to enhance your natural beauty
+            with elegance and confidence.
+          </p>
+
+          <a
+            href="#contact"
+            class="inline-block bg-[#D8B4A6] text-white px-8 py-4 rounded-full text-lg hover:opacity-90 transition"
+          >
+            Book an Appointment
+          </a>
+        </div>
+
+        <!-- RIGHT IMAGE (TETAP ADA) -->
+        <div class="relative">
+          <img
+            src="img/close-up-side-portrait-smiling-summer-asian-woman-with-funky-black-hat-sunglasses.jpg"
+            alt="Makeup Artist"
+            class="w-full h-[520px] object-cover rounded-2xl shadow-xl"
+          />
+        </div>
+      </div>
+    </section>
+    <!-- About Section -->
+    <section
+      id="about"
+      class="relative min-h-screen flex items-center overflow-hidden"
+      style="
+        background-image: url(&quot;img/106183.jpg&quot;);
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <!-- soft overlay -->
+      <div class="absolute inset-0 bg-white/70"></div>
+
+      <!-- texture -->
+      <div
+        class="absolute inset-0 bg-[radial-gradient(#00000008_1px,transparent_1px)] [background-size:20px_20px]"
+      ></div>
+
+      <div class="relative max-w-7xl mx-auto px-6 w-full">
+        <!-- TITLE -->
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-3">About Our Service</h2>
+          <div class="w-20 h-1 bg-gray-600 mx-auto"></div>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-16">
+          <!-- IMAGE -->
+          <div class="flex justify-center">
+            <img
+              src="img/close-up-side-portrait-smiling-summer-asian-woman-with-funky-black-hat-sunglasses.jpg"
+              alt="Beauty Service"
+              class="w-full max-w-sm drop-shadow-2xl"
+            />
+          </div>
+
+          <!-- TEXT -->
+          <div>
+            <h3
+              class="text-4xl md:text-5xl font-serif font-semibold text-[#3A2E2A] mb-6 leading-tight"
+            >
+              Beauty Brand Experience <br />
+              Designed to Feel Calm, <br />
+              Elegant, and Effortless
+            </h3>
+
+            <p class="text-[#8A7F79] text-lg mb-5">
+              We crafted a refined beauty brand and experience focused on
+              simplicity, elegance, and effortless booking.
+            </p>
+
+            <p class="text-[#8A7F79] text-lg">
+              Every detail is designed to make clients feel relaxed, confident,
+              and inspired.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="services" class="bg-[#FAF6F3]">
+      <!-- TITLE -->
+      <div class="max-w-7xl mx-auto px-6 pt-32 pb-24 text-center">
+        <h2
+          class="text-4xl md:text-5xl font-serif font-semibold text-[#3A2E2A] mb-4"
+        >
+          Signature Services
+        </h2>
+        <p class="text-[#8A7F79] text-lg max-w-xl mx-auto">
+          Thoughtfully crafted beauty services for your most meaningful moments.
+        </p>
+      </div>
+
+      <!-- ===================== -->
+      <!-- 1. PERNIKAHAN (EDITORIAL) -->
+      <!-- ===================== -->
+      <section class="py-1 bg-white">
+        <div
+          class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-24 items-center"
+        >
+          <img
+            src="img/close-up-side-portrait-smiling-summer-asian-woman-with-funky-black-hat-sunglasses.jpg"
+            class="rounded-2xl shadow-2xl"
+            alt="Makeup Pernikahan"
+          />
+
+          <div>
+            <h3 class="text-5xl font-serif text-[#3A2E2A] mb-6">
+              Makeup Pernikahan
+            </h3>
+            <p class="text-[#8A7F79] text-lg mb-8 leading-relaxed">
+              Timeless bridal makeup designed with precision, softness, and an
+              understanding of your unique story.
+            </p>
+            <a
+              href="#contact"
+              class="inline-block text-sm tracking-wide border-b border-black pb-1"
+            >
+              Book Appointment
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== -->
+      <!-- 2 & 3. FLOATING CARDS -->
+      <!-- ===================== -->
+      <section class="py-32">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-24">
+          <!-- WISUDA -->
+          <div
+            class="bg-white/70 backdrop-blur-xl rounded-3xl shadow-xl overflow-hidden"
+          >
+            <img
+              src="img/close-up-side-portrait-smiling-summer-asian-woman-with-funky-black-hat-sunglasses.jpg"
+              class="h-[300px] w-full object-cover"
+              alt="Makeup Wisuda"
+            />
+            <div class="p-10">
+              <h4 class="text-3xl font-serif mb-4">Makeup Wisuda</h4>
+              <p class="text-[#8A7F79] mb-6">
+                Fresh, elegant makeup to celebrate your milestone and capture
+                beautiful memories.
+              </p>
+              <a href="#contact" class="text-sm underline">Book Now</a>
+            </div>
+          </div>
+
+          <!-- PESTA (OFFSET) -->
+          <div
+            class="bg-white/70 backdrop-blur-xl rounded-3xl shadow-xl overflow-hidden md:mt-32"
+          >
+            <img
+              src="img/close-up-side-portrait-smiling-summer-asian-woman-with-funky-black-hat-sunglasses.jpg"
+              class="h-[300px] w-full object-cover"
+              alt="Makeup Pesta"
+            />
+            <div class="p-10">
+              <h4 class="text-3xl font-serif mb-4">Makeup Pesta</h4>
+              <p class="text-[#8A7F79] mb-6">
+                Glamorous or soft looks tailored to your outfit, lighting, and
+                occasion.
+              </p>
+              <a href="#contact" class="text-sm underline">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== -->
+      <!-- 4. PEMOTRETAN (EDITORIAL) -->
+      <!-- ===================== -->
+      <section class="py-32 bg-white">
+        <div
+          class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-24 items-center"
+        >
+          <div>
+            <h3 class="text-5xl font-serif text-[#3A2E2A] mb-6">
+              Makeup Pemotretan
+            </h3>
+            <p class="text-[#8A7F79] text-lg mb-8 leading-relaxed">
+              Camera-ready makeup crafted to enhance facial features while
+              maintaining a natural, editorial finish.
+            </p>
+            <a
+              href="#contact"
+              class="inline-block text-sm tracking-wide border-b border-black pb-1"
+            >
+              Book Appointment
+            </a>
+          </div>
+
+          <img
+            src="img/close-up-side-portrait-smiling-summer-asian-woman-with-funky-black-hat-sunglasses.jpg"
+            class="rounded-2xl shadow-2xl"
+            alt="Makeup Pemotretan"
+          />
+        </div>
+      </section>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="pricelist" class="min-h-screen bg-[#FAF6F3] flex items-center">
+      <div class="max-w-7xl mx-auto px-6 w-full">
+        <!-- TITLE -->
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-serif font-semibold text-[#3A2E2A] mb-2">
+            Pricelist
+          </h2>
+          <p class="text-[#8A7F79] text-base">
+            Refined beauty services, thoughtfully priced.
+          </p>
+        </div>
+
+        <!-- PRICING GRID -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch"
+        >
+          <!-- WISUDA -->
+          <div
+            class="bg-white rounded-3xl p-6 shadow-sm flex flex-col justify-between"
+          >
+            <div>
+              <h3 class="font-serif text-xl mb-1">Wisuda</h3>
+              <p class="text-2xl font-medium text-[#3A2E2A] mb-4">Rp 500K</p>
+              <ul class="text-sm text-[#8A7F79] space-y-2">
+                <li>Fresh & natural look</li>
+                <li>Photo-ready finish</li>
+                <li>Touch-up included</li>
+              </ul>
+            </div>
+            <a
+              href="https://wa.me/6285368010135"
+              class="mt-6 block text-center text-sm border border-[#3A2E2A] text-[#3A2E2A] py-2 rounded-full hover:bg-[#3A2E2A] hover:text-white transition"
+            >
+              Book
+            </a>
+          </div>
+
+          <!-- PESTA -->
+          <div
+            class="bg-white rounded-3xl p-6 shadow-sm flex flex-col justify-between"
+          >
+            <div>
+              <h3 class="font-serif text-xl mb-1">Pesta</h3>
+              <p class="text-2xl font-medium text-[#3A2E2A] mb-4">Rp 650K</p>
+              <ul class="text-sm text-[#8A7F79] space-y-2">
+                <li>Glam or soft style</li>
+                <li>Customized look</li>
+                <li>Long-lasting</li>
+              </ul>
+            </div>
+            <a
+              href="https://wa.me/6285368010135"
+              class="mt-6 block text-center text-sm border border-[#3A2E2A] text-[#3A2E2A] py-2 rounded-full hover:bg-[#3A2E2A] hover:text-white transition"
+            >
+              Book
+            </a>
+          </div>
+
+          <!-- PERNIKAHAN (FEATURED) -->
+          <div
+            class="relative bg-[#EADAD3] rounded-3xl p-7 shadow-xl scale-105 flex flex-col justify-between"
+          >
+            <div>
+              <span
+                class="absolute top-4 right-4 text-[10px] uppercase tracking-widest bg-[#3A2E2A] text-white px-2 py-1 rounded-full"
+              >
+                Popular
+              </span>
+              <h3 class="font-serif text-2xl mb-1">Pernikahan</h3>
+              <p class="text-3xl font-semibold text-[#3A2E2A] mb-4">Rp 3.5JT</p>
+              <ul class="text-sm text-[#6f6762] space-y-2">
+                <li>Bridal consultation</li>
+                <li>Premium products</li>
+                <li>Full-day durability</li>
+                <li>Touch-up session</li>
+              </ul>
+            </div>
+            <a
+              href="https://wa.me/6285368010135"
+              class="mt-6 block text-center text-sm bg-[#3A2E2A] text-white py-2 rounded-full hover:opacity-90 transition"
+            >
+              Book Wedding
+            </a>
+          </div>
+
+          <!-- PEMOTRETAN -->
+          <div
+            class="bg-white rounded-3xl p-6 shadow-sm flex flex-col justify-between"
+          >
+            <div>
+              <h3 class="font-serif text-xl mb-1">Pemotretan</h3>
+              <p class="text-2xl font-medium text-[#3A2E2A] mb-4">Rp 1.2JT</p>
+              <ul class="text-sm text-[#8A7F79] space-y-2">
+                <li>Camera-ready makeup</li>
+                <li>Studio & outdoor</li>
+                <li>Editorial finish</li>
+              </ul>
+            </div>
+            <a
+              href="https://wa.me/6285368010135"
+              class="mt-6 block text-center text-sm border border-[#3A2E2A] text-[#3A2E2A] py-2 rounded-full hover:bg-[#3A2E2A] hover:text-white transition"
+            >
+              Book
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="py-36 bg-[#FAF6F3]">
+      <div class="max-w-7xl mx-auto px-6">
+        <!-- TITLE -->
+        <div class="text-center mb-24">
+          <h2
+            class="text-4xl md:text-5xl font-serif font-semibold text-[#3A2E2A] mb-4"
+          >
+            Portfolio
+          </h2>
+          <p class="text-[#8A7F79] text-lg max-w-xl mx-auto">
+            A selection of refined makeup looks crafted for timeless moments.
+          </p>
+        </div>
+
+        <!-- GRID -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+          <!-- ITEM -->
+          <div class="group relative overflow-hidden rounded-3xl">
+            <img
+              src="img/close-up-side-portrait-smiling-summer-asian-woman-with-funky-black-hat-sunglasses.jpg"
+              class="w-full h-[420px] object-cover transition-transform duration-700 group-hover:scale-105"
+              alt="Portfolio Makeup"
+            />
+            <div
+              class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition"
+            ></div>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-3xl">
+            <img
+              src="img/close-up-side-portrait-smiling-summer-asian-woman-with-funky-black-hat-sunglasses.jpg"
+              class="w-full h-[420px] object-cover transition-transform duration-700 group-hover:scale-105"
+              alt="Portfolio Makeup"
+            />
+            <div
+              class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition"
+            ></div>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-3xl">
+            <img
+              src="img/close-up-side-portrait-smiling-summer-asian-woman-with-funky-black-hat-sunglasses.jpg"
+              class="w-full h-[420px] object-cover transition-transform duration-700 group-hover:scale-105"
+              alt="Portfolio Makeup"
+            />
+            <div
+              class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition"
+            ></div>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-3xl">
+            <img
+              src="img/close-up-side-portrait-smiling-summer-asian-woman-with-funky-black-hat-sunglasses.jpg"
+              class="w-full h-[420px] object-cover transition-transform duration-700 group-hover:scale-105"
+              alt="Portfolio Makeup"
+            />
+            <div
+              class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition"
+            ></div>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-3xl">
+            <img
+              src="img/close-up-side-portrait-smiling-summer-asian-woman-with-funky-black-hat-sunglasses.jpg"
+              class="w-full h-[420px] object-cover transition-transform duration-700 group-hover:scale-105"
+              alt="Portfolio Makeup"
+            />
+            <div
+              class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition"
+            ></div>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-3xl">
+            <img
+              src="img/close-up-side-portrait-smiling-summer-asian-woman-with-funky-black-hat-sunglasses.jpg"
+              class="w-full h-[420px] object-cover transition-transform duration-700 group-hover:scale-105"
+              alt="Portfolio Makeup"
+            />
+            <div
+              class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition"
+            ></div>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-3xl">
+            <img
+              src="img/close-up-side-portrait-smiling-summer-asian-woman-with-funky-black-hat-sunglasses.jpg"
+              class="w-full h-[420px] object-cover transition-transform duration-700 group-hover:scale-105"
+              alt="Portfolio Makeup"
+            />
+            <div
+              class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition"
+            ></div>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-3xl">
+            <img
+              src="img/close-up-side-portrait-smiling-summer-asian-woman-with-funky-black-hat-sunglasses.jpg"
+              class="w-full h-[420px] object-cover transition-transform duration-700 group-hover:scale-105"
+              alt="Portfolio Makeup"
+            />
+            <div
+              class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition"
+            ></div>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-3xl">
+            <img
+              src="img/close-up-side-portrait-smiling-summer-asian-woman-with-funky-black-hat-sunglasses.jpg"
+              class="w-full h-[420px] object-cover transition-transform duration-700 group-hover:scale-105"
+              alt="Portfolio Makeup"
+            />
+            <div
+              class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!- Contact Section -->
+    <section id="contact" class="relative py-32 bg-[#FAF6F3] overflow-hidden">
+      <!-- soft background accent -->
+      <div
+        class="absolute -top-32 -right-32 w-[500px] h-[500px] bg-[#EADAD3] rounded-full blur-3xl opacity-40"
+      ></div>
+      <div
+        class="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-[#D8B4A6] rounded-full blur-3xl opacity-30"
+      ></div>
+
+      <div class="relative max-w-4xl mx-auto px-6 text-center">
+        <!-- TITLE -->
+        <h2
+          class="text-4xl md:text-5xl font-serif font-semibold text-[#3A2E2A] mb-6"
+        >
+          Let’s Create Something Beautiful
+        </h2>
+
+        <p class="text-[#8A7F79] text-lg mb-14 max-w-2xl mx-auto">
+          For bookings, availability, and collaborations, feel free to reach out
+          directly through WhatsApp or Instagram.
+        </p>
+
+        <!-- ACTION BUTTONS -->
+        <div class="flex flex-col sm:flex-row justify-center gap-6">
+          <!-- WHATSAPP -->
+          <a
+            href="https://wa.me/6285368010135"
+            target="_blank"
+            class="inline-flex items-center justify-center gap-3 bg-[#25D366] text-white px-10 py-4 rounded-full text-lg shadow-lg hover:shadow-xl transition"
+          >
+            <i class="fab fa-whatsapp text-2xl"></i>
+            Chat via WhatsApp
+          </a>
+
+          <!-- INSTAGRAM -->
+          <a
+            href="https://www.instagram.com/gldy_makeup/"
+            target="_blank"
+            class="inline-flex items-center justify-center gap-3 bg-black text-white px-10 py-4 rounded-full text-lg shadow-lg hover:shadow-xl transition"
+          >
+            <i class="fab fa-instagram text-2xl"></i>
+            DM on Instagram
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-6 md:mb-0">
+            <span class="text-xl font-bold">Gldy Makeup</span>
+            <p class="text-gray-400 mt-2">Makeup Artist</p>
+          </div>
+          <div class="flex space-x-6">
+            <a
+              href="https://wa.me/6285368010135"
+              class="text-gray-400 hover:text-white transition"
+            >
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/gldy_makeup/"
+              class="text-gray-400 hover:text-white transition"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400 mb-4 md:mb-0">
+            © 2026 Gldy Makeup. All rights reserved.
+          </p>
+          <!-- <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Sitemap</a>
+                </div> -->
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          mobileMenu.classList.add("hidden");
+
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Add shadow to navbar on scroll
+      window.addEventListener("scroll", function () {
+        const nav = document.querySelector("nav");
+        if (window.scrollY > 10) {
+          nav.classList.add("shadow-lg");
+        } else {
+          nav.classList.remove("shadow-lg");
+        }
+      });
+    </script>
+  </body>
+</html>
